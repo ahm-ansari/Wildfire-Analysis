@@ -1,11 +1,9 @@
 # Loading the libraries we need: numpy, scipy, matplotlib
-import numpy as np
+import warnings
+
 import imageio.v3 as imageio
 import matplotlib.pyplot as plt
-import scipy
-import skimage  # install scikit-image
-from skimage import data
-import warnings
+import numpy as np
 
 warnings.filterwarnings("ignore")
 # Creating a numpy array from an image file:

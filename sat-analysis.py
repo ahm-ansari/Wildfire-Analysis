@@ -1,13 +1,14 @@
+import warnings
+
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-import warnings
 
 # Suppress warnings from KMeans about memory leaks on Windows with MKL.
 warnings.filterwarnings('ignore', category=UserWarning, module='sklearn.cluster._kmeans')
+
 
 def perform_landscape_analysis(image_path="sd-3layers1.jpg"):
     """
@@ -110,7 +111,7 @@ def perform_landscape_analysis(image_path="sd-3layers1.jpg"):
     im = axes[1].imshow(segmented_image_data, cmap='viridis')
     axes[1].set_title(f'Segmented Landscape ({n_clusters} Clusters)')
     axes[1].axis('off')
-    
+
     # Add a color bar to explain the cluster labels
     cbar = fig.colorbar(im, ax=axes[1], ticks=range(n_clusters))
     cbar.set_label('Cluster ID')
